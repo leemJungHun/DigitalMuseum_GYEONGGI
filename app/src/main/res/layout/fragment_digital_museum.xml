@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="fragment"
+            type="kr.rowan.digital_museum_gyeonggi.fragment.MuseumFragment" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gyeonggi_school_bg_03"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC000000" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImgView"
+            android:layout_width="@dimen/dimen_282"
+            android:layout_height="@dimen/dimen_282"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_back"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/digital_museum"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_38"
+            android:layout_marginTop="@dimen/dimen_156"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/titleLeftImgView"
+            android:layout_width="@dimen/dimen_174"
+            android:layout_height="@dimen/dimen_18"
+            android:layout_marginEnd="@dimen/dimen_36"
+            app:layout_constraintEnd_toStartOf="@id/titleTxtView"
+            app:layout_constraintTop_toTopOf="@id/titleTxtView"
+            app:layout_constraintBottom_toBottomOf="@id/titleTxtView"
+            android:src="@drawable/deco_title_left"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/titleRightImgView"
+            android:layout_width="@dimen/dimen_174"
+            android:layout_height="@dimen/dimen_18"
+            android:layout_marginStart="@dimen/dimen_36"
+            app:layout_constraintStart_toEndOf="@id/titleTxtView"
+            app:layout_constraintTop_toTopOf="@id/titleTxtView"
+            app:layout_constraintBottom_toBottomOf="@id/titleTxtView"
+            android:src="@drawable/deco_title_right"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bookImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_66"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            app:layout_constraintEnd_toStartOf="@id/documentImgView"
+            android:src="@drawable/btn_books"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/documentImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_66"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toEndOf="@id/bookImgView"
+            app:layout_constraintEnd_toStartOf="@id/teachwareImgView"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            android:src="@drawable/btn_books"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/teachwareImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_66"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toEndOf="@id/documentImgView"
+            app:layout_constraintEnd_toStartOf="@id/clothesImgView"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            android:src="@drawable/btn_teachware"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/clothesImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_66"
+            app:layout_constraintStart_toEndOf="@+id/teachwareImgView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            android:src="@drawable/btn_clothes"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/recordImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_20"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bookImgView"
+            app:layout_constraintEnd_toStartOf="@id/instrumentImgView"
+            android:src="@drawable/btn_record"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/instrumentImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toEndOf="@id/recordImgView"
+            app:layout_constraintEnd_toStartOf="@id/etcImgView"
+            app:layout_constraintTop_toTopOf="@id/recordImgView"
+            android:src="@drawable/btn_instrument"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/etcImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toEndOf="@id/instrumentImgView"
+            app:layout_constraintEnd_toStartOf="@id/alumniImgView"
+            app:layout_constraintTop_toTopOf="@id/recordImgView"
+            android:src="@drawable/btn_etc"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/alumniImgView"
+            android:layout_width="@dimen/dimen_344"
+            android:layout_height="@dimen/dimen_300"
+            app:layout_constraintStart_toEndOf="@+id/etcImgView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/recordImgView"
+            android:src="@drawable/btn_alumni"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

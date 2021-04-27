@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="kr.rowan.digital_museum_gyeonggi.fragment.SubFragment"
+    >
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="kr.rowan.digital_museum_gyeonggi.fragment.SubFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gyeonggi_school_bg_03" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC000000" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/subTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notoserifkr_medium"
+            android:gravity="start"
+            android:text="@string/sub_text"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/font_42"
+            android:layout_marginTop="@dimen/dimen_225"
+            android:layout_marginStart="@dimen/dimen_240"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/categoryImgView1"
+            android:layout_width="@dimen/dimen_400"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_230"
+            android:layout_marginEnd="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/categoryImgView2"
+            android:src="@drawable/btn_01"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/categoryImgView2"
+            android:layout_width="@dimen/dimen_400"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_230"
+            android:layout_marginEnd="@dimen/dimen_240"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/btn_02_on"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/categoryImgView3"
+            android:layout_width="@dimen/dimen_400"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginEnd="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintTop_toBottomOf="@id/categoryImgView1"
+            app:layout_constraintEnd_toStartOf="@+id/categoryImgView2"
+            android:src="@drawable/btn_03"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/categoryImgView4"
+            android:layout_width="@dimen/dimen_400"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginEnd="@dimen/dimen_240"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintTop_toBottomOf="@id/categoryImgView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/btn_04"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

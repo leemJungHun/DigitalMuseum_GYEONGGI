@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/custom_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#45000000">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/dimen_1384"
+            android:layout_height="@dimen/dimen_736"
+            android:background="@drawable/radius_line_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/contentImage"
+                android:layout_width="@dimen/dimen_720"
+                android:layout_height="@dimen/dimen_648"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:padding="@dimen/dimen_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/classified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_1"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="분류"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/contentImage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/producted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:layout_marginTop="@dimen/dimen_32"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="@dimen/font_24"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/classified" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:layout_marginTop="@dimen/dimen_12"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_b"
+                android:gravity="start"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="@dimen/font_28"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/producted" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:layout_marginTop="@dimen/dimen_54"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="수량"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amountValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginTop="@dimen/dimen_54"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="2개"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="크기"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/amountValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sizeValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/amountValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="재질"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/sizeValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/materialValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/sizeValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/production"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="생산처 구분"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/materialValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/productionValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/materialValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/provider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="생산자/기증자"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/productionValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/providerValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/productionValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="출처/발행처"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/providerValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sourceValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/providerValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="생산지"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/sourceValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/originValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/sourceValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/storage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="보관처"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/originValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/storageValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/originValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/store_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="서가번호"
+                android:textColor="#777777"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/storageValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/store_numValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_196"
+                android:layout_marginEnd="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:text="270*195"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/storageValue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/contentText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_48"
+                android:layout_marginTop="@dimen/dimen_48"
+                android:fontFamily="@font/nanumbarungothic_r"
+                android:gravity="start"
+                android:includeFontPadding="false"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="@id/classified"
+                app:layout_constraintStart_toEndOf="@id/contentImage"
+                app:layout_constraintTop_toBottomOf="@id/store_numValue" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/close_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_48"
+                    android:fontFamily="@font/ridibatang"
+                    android:text="화면닫기"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/font_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/close_img" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/close_img"
+                    android:layout_width="@dimen/dimen_24"
+                    android:layout_height="@dimen/dimen_24"
+                    android:layout_marginEnd="@dimen/dimen_48"
+                    android:layout_marginBottom="@dimen/dimen_48"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
