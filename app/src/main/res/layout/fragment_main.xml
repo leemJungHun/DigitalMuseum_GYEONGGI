@@ -18,13 +18,70 @@
             android:scaleType="centerCrop"
             android:src="@drawable/gyeonggi_school_bg_01"
             />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#CC000000"
             />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_238"
+            android:layout_height="@dimen/dimen_58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dimen_60"
+            android:layout_marginTop="@dimen/dimen_60"
+            android:src="@drawable/logo_white"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_334"
+            android:layout_height="@dimen/dimen_480"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="@dimen/dimen_136"
+            android:layout_marginTop="@dimen/dimen_36"
+            android:src="@drawable/bg_text"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_382"
+            android:layout_height="@dimen/dimen_550"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/dimen_148"
+            android:src="@drawable/bg_text2"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_96"
+            android:layout_height="@dimen/dimen_112"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dimen_422"
+            android:layout_marginTop="@dimen/dimen_242"
+            android:src="@drawable/deco_bird01"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_118"
+            android:layout_height="@dimen/dimen_138"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/dimen_352"
+            android:layout_marginBottom="@dimen/dimen_272"
+            android:src="@drawable/deco_bird02"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_238"
+            android:layout_height="@dimen/dimen_58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dimen_60"
+            android:layout_marginTop="@dimen/dimen_60"
+            android:src="@drawable/logo_white"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"

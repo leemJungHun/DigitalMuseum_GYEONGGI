@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">DigitalMuseum_GYEONGGI</string>
+    <string name="app_name">디지털 역사관</string>
     <string name="main_text">백년 이어진 전통, 천년 빛낼 경기상고!\n학생은 꿈을 꾸고, 학교는 응원합니다.</string>
     <string name="sub_text">1923년 개교한 경기상고는\n정치, 경제, 산업에 우수한\n인재를 배출한 명품\n특성화 고등학교입니다.</string>
     <string name="digital_museum">디지털 박물관</string>
     <string name="great_seniors">자랑스러운 선배들</string>
+    <string name="category_num_key">num_key</string>
+    <string name="category_vo">uuid_vo</string>
 </resources>

@@ -41,10 +41,10 @@ class MainFragment : Fragment() {
         backendDrawable.add(resources.getDrawable(R.drawable.gyeonggi_school_bg_02))
         backendDrawable.add(resources.getDrawable(R.drawable.gyeonggi_school_bg_04))
         //(Objects.requireNonNull(activity) as MainActivity).Media_Start()
-        Stop_Period()
-        Start_Period()
+        stopPeriod()
+        startPeriod()
         binding.mainScreen.setOnClickListener {
-            Stop_Period()
+            stopPeriod()
             (Objects.requireNonNull(activity) as MainActivity).Media_Stop()
             (Objects.requireNonNull(activity) as MainActivity).setStartFragment(
                 SubFragment(),
@@ -52,7 +52,7 @@ class MainFragment : Fragment() {
                 null
             )
         }
-        return binding.getRoot()
+        return binding.root
     }
 
     private fun fadeOutAndHideImage(outImg: ImageView) {
@@ -109,20 +109,20 @@ class MainFragment : Fragment() {
         inImg.startAnimation(fadeIn)
     }
 
-    fun Start_Period() {
-        SetImageTask()
+    private fun startPeriod() {
+        setImageTask()
         timer = Timer()
         timer!!.schedule(addTask, 0, (3 * 1000).toLong())
     }
 
-    fun Stop_Period() {
+    private fun stopPeriod() {
         if (timer != null) {
             timer!!.cancel()
             timer = null
         }
     }
 
-    private fun SetImageTask() {
+    private fun setImageTask() {
         try {
             addTask = object : TimerTask() {
                 override fun run() {

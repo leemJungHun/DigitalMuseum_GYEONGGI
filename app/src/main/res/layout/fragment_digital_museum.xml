@@ -21,6 +21,15 @@
             android:background="#CC000000" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_238"
+            android:layout_height="@dimen/dimen_58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dimen_60"
+            android:layout_marginTop="@dimen/dimen_60"
+            android:src="@drawable/logo_white"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/backImgView"
             android:layout_width="@dimen/dimen_282"
             android:layout_height="@dimen/dimen_282"
@@ -28,6 +37,7 @@
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{fragment::onClick}"
             android:scaleType="centerCrop"
             android:src="@drawable/btn_back"
             />
@@ -72,6 +82,8 @@
             android:layout_width="@dimen/dimen_344"
             android:layout_height="@dimen/dimen_300"
             android:layout_marginTop="@dimen/dimen_66"
+            android:onClick="@{fragment::onClick}"
+            android:tag="도서류"
             app:layout_constraintHorizontal_chainStyle="packed"
             android:layout_marginEnd="@dimen/dimen_20"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,10 +98,12 @@
             android:layout_height="@dimen/dimen_300"
             android:layout_marginTop="@dimen/dimen_66"
             android:layout_marginEnd="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            android:tag="문서류"
             app:layout_constraintStart_toEndOf="@id/bookImgView"
             app:layout_constraintEnd_toStartOf="@id/teachwareImgView"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
-            android:src="@drawable/btn_books"
+            android:src="@drawable/btn_document"
             />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -98,6 +112,8 @@
             android:layout_height="@dimen/dimen_300"
             android:layout_marginTop="@dimen/dimen_66"
             android:layout_marginEnd="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            android:tag="교구류"
             app:layout_constraintStart_toEndOf="@id/documentImgView"
             app:layout_constraintEnd_toStartOf="@id/clothesImgView"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
@@ -109,6 +125,8 @@
             android:layout_width="@dimen/dimen_344"
             android:layout_height="@dimen/dimen_300"
             android:layout_marginTop="@dimen/dimen_66"
+            android:onClick="@{fragment::onClick}"
+            android:tag="복식류"
             app:layout_constraintStart_toEndOf="@+id/teachwareImgView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
@@ -116,16 +134,18 @@
             />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/recordImgView"
+            android:id="@+id/historyImgView"
             android:layout_width="@dimen/dimen_344"
             android:layout_height="@dimen/dimen_300"
             android:layout_marginTop="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            android:tag="기록류"
             app:layout_constraintHorizontal_chainStyle="packed"
             android:layout_marginEnd="@dimen/dimen_20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookImgView"
             app:layout_constraintEnd_toStartOf="@id/instrumentImgView"
-            android:src="@drawable/btn_record"
+            android:src="@drawable/btn_history"
             />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -133,9 +153,11 @@
             android:layout_width="@dimen/dimen_344"
             android:layout_height="@dimen/dimen_300"
             android:layout_marginEnd="@dimen/dimen_20"
-            app:layout_constraintStart_toEndOf="@id/recordImgView"
+            android:onClick="@{fragment::onClick}"
+            android:tag="민구류"
+            app:layout_constraintStart_toEndOf="@id/historyImgView"
             app:layout_constraintEnd_toStartOf="@id/etcImgView"
-            app:layout_constraintTop_toTopOf="@id/recordImgView"
+            app:layout_constraintTop_toTopOf="@id/historyImgView"
             android:src="@drawable/btn_instrument"
             />
 
@@ -144,9 +166,11 @@
             android:layout_width="@dimen/dimen_344"
             android:layout_height="@dimen/dimen_300"
             android:layout_marginEnd="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            android:tag="기타류"
             app:layout_constraintStart_toEndOf="@id/instrumentImgView"
             app:layout_constraintEnd_toStartOf="@id/alumniImgView"
-            app:layout_constraintTop_toTopOf="@id/recordImgView"
+            app:layout_constraintTop_toTopOf="@id/historyImgView"
             android:src="@drawable/btn_etc"
             />
 
@@ -154,9 +178,11 @@
             android:id="@+id/alumniImgView"
             android:layout_width="@dimen/dimen_344"
             android:layout_height="@dimen/dimen_300"
+            android:onClick="@{fragment::onClick}"
+            android:tag="총동문회"
             app:layout_constraintStart_toEndOf="@+id/etcImgView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/recordImgView"
+            app:layout_constraintTop_toTopOf="@id/historyImgView"
             android:src="@drawable/btn_alumni"
             />
 

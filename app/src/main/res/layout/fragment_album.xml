@@ -5,7 +5,7 @@
 
         <variable
             name="fragment"
-            type="kr.rowan.digital_museum_gyeonggi.fragment.SeniorsFragment" />
+            type="kr.rowan.digital_museum_gyeonggi.fragment.AlbumFragment" />
 
     </data>
 
@@ -34,11 +34,11 @@
             android:id="@+id/backImgView"
             android:layout_width="@dimen/dimen_282"
             android:layout_height="@dimen/dimen_282"
-            android:onClick="@{fragment::onClick}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{fragment::onClick}"
             android:scaleType="centerCrop"
             android:src="@drawable/btn_back"
             />
@@ -50,7 +50,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/great_seniors"
+            android:text="@string/digital_museum"
             android:textColor="@color/white"
             android:textSize="@dimen/font_38"
             android:layout_marginTop="@dimen/dimen_156"
@@ -78,32 +78,88 @@
             android:src="@drawable/deco_title_right"
             />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/headmasterImgView"
-            android:layout_width="@dimen/dimen_460"
-            android:layout_height="@dimen/dimen_620"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/albumImgView1"
+            android:layout_width="@dimen/dimen_466"
+            android:layout_height="@dimen/dimen_300"
             android:layout_marginTop="@dimen/dimen_66"
-            android:layout_marginEnd="@dimen/dimen_20"
             android:onClick="@{fragment::onClick}"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            android:text="1940 ~ 1968"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/dimen_20"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/proudSeniorsImgView"
-            android:background="@drawable/senuors_img_01"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            app:layout_constraintEnd_toStartOf="@id/albumImgView2"
+            android:background="@drawable/img_01"
             />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/proudSeniorsImgView"
-            android:layout_width="@dimen/dimen_460"
-            android:layout_height="@dimen/dimen_620"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/albumImgView2"
+            android:layout_width="@dimen/dimen_466"
+            android:layout_height="@dimen/dimen_300"
             android:layout_marginTop="@dimen/dimen_66"
             android:onClick="@{fragment::onClick}"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:text="1969 ~ 1983"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toEndOf="@id/albumImgView1"
+            app:layout_constraintEnd_toStartOf="@id/albumImgView3"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
-            app:layout_constraintStart_toEndOf="@id/headmasterImgView"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/senuors_img_02"
+            android:background="@drawable/img_02"
             />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/albumImgView3"
+            android:layout_width="@dimen/dimen_466"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_66"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:text="1984 ~ 1994"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/albumImgView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            android:background="@drawable/img_03"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/albumImgView4"
+            android:layout_width="@dimen/dimen_710"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:text="1995 ~ 2004"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/albumImgView5"
+            app:layout_constraintTop_toBottomOf="@id/albumImgView1"
+            android:background="@drawable/img_04"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/albumImgView5"
+            android:layout_width="@dimen/dimen_710"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:text="2005 ~ 현재"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/albumImgView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/albumImgView1"
+            android:background="@drawable/img_05"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

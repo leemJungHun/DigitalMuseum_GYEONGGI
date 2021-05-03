@@ -5,7 +5,7 @@
 
         <variable
             name="fragment"
-            type="kr.rowan.digital_museum_gyeonggi.fragment.SeniorsFragment" />
+            type="kr.rowan.digital_museum_gyeonggi.fragment.ItemFragment" />
 
     </data>
 
@@ -30,19 +30,6 @@
             android:src="@drawable/logo_white"
             />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/backImgView"
-            android:layout_width="@dimen/dimen_282"
-            android:layout_height="@dimen/dimen_282"
-            android:onClick="@{fragment::onClick}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/btn_back"
-            />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/titleTxtView"
             android:layout_width="wrap_content"
@@ -50,7 +37,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/great_seniors"
             android:textColor="@color/white"
             android:textSize="@dimen/font_38"
             android:layout_marginTop="@dimen/dimen_156"
@@ -78,32 +64,57 @@
             android:src="@drawable/deco_title_right"
             />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/headmasterImgView"
-            android:layout_width="@dimen/dimen_460"
-            android:layout_height="@dimen/dimen_620"
-            android:layout_marginTop="@dimen/dimen_66"
-            android:layout_marginEnd="@dimen/dimen_20"
-            android:onClick="@{fragment::onClick}"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/proudSeniorsImgView"
-            android:background="@drawable/senuors_img_01"
-            />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/proudSeniorsImgView"
-            android:layout_width="@dimen/dimen_460"
-            android:layout_height="@dimen/dimen_620"
-            android:layout_marginTop="@dimen/dimen_66"
-            android:onClick="@{fragment::onClick}"
-            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
-            app:layout_constraintStart_toEndOf="@id/headmasterImgView"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/assignmentListView"
+            android:layout_width="@dimen/dimen_1920"
+            android:layout_height="@dimen/dimen_558"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/senuors_img_02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/rvSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_240"
+            android:layout_marginEnd="@dimen/dimen_240"
+            android:layout_marginBottom="@dimen/dimen_130"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/seekbar"
+            android:thumb="@drawable/bar"
+            android:thumbOffset="@dimen/mDimen_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImgView"
+            android:layout_width="@dimen/dimen_282"
+            android:layout_height="@dimen/dimen_282"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_back"
             />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/homeImgView"
+            android:layout_width="@dimen/dimen_282"
+            android:layout_height="@dimen/dimen_282"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_home"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout"
+            android:background="#00FFFFFF"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--<androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/contentImgView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:transitionName="sharedImage" />-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/contentText"
+                android:layout_width="@dimen/dimen_620"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="테스트"
+                android:textSize="@dimen/font_60"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <Space
+            android:id="@+id/startSpace"
+            android:visibility="gone"
+            android:layout_width="@dimen/dimen_710"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Space
+            android:id="@+id/endSpace"
+            android:visibility="gone"
+            android:layout_width="@dimen/dimen_736"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/patternLayout1"
+            />
+        <Space
+            android:id="@+id/endSpace2"
+            android:visibility="gone"
+            android:layout_width="@dimen/dimen_720"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/patternLayout2"
+            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/patternLayout1"
+            android:layout_width="@dimen/dimen_460"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_marginStart="@dimen/dimen_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/startSpace"
+            app:layout_constraintTop_toTopOf="parent">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pattenBtn1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/font_24"
+                android:textColor="@color/white"
+                android:fontFamily="@font/notoserifkr_medium"
+                android:background="#73A4A4A4"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/patternLayout2"
+            android:layout_width="@dimen/dimen_480"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/startSpace"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Space
+                android:id="@+id/centerYSpace"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pattenBtn2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/centerYSpace"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:textColor="@color/white"
+                android:fontFamily="@font/notoserifkr_medium"
+                android:textSize="@dimen/font_24"
+                android:background="#73A4A4A4"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pattenBtn3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/centerYSpace"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:textColor="@color/white"
+                android:fontFamily="@font/notoserifkr_medium"
+                android:textSize="@dimen/font_24"
+                android:background="#73A4A4A4"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
