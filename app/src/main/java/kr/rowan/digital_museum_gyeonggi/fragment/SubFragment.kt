@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
@@ -76,6 +77,8 @@ class SubFragment : Fragment() {
         categories.add(binding.categoryImgView3)
         categories.add(binding.categoryImgView4)
 
+
+
         for(i in 0 until categories.size){
             categories[i].setOnTouchListener(touch)
             categories[i].tag = i
@@ -120,6 +123,7 @@ class SubFragment : Fragment() {
                         if (response.body() != null) {
                             Log.e("Success response:", "${response.body()}")
                             Log.e("Success uuid:", "")
+                            //Toast.makeText(context,"${response.body()}",Toast.LENGTH_LONG).show()
                             val jsonArray = response.body()
                             for(array in jsonArray!!){
                                 val jsonObject = array.asJsonObject
@@ -146,11 +150,14 @@ class SubFragment : Fragment() {
                                 false,
                                 result
                             )
+                        }else{
+                            Toast.makeText(context,"body null",Toast.LENGTH_LONG).show()
                         }
                     }
 
                     override fun onFailure(call: Call<JsonArray?>, t: Throwable) {
                         Log.e("Failed uuid:", "${t.message}")
+                        Toast.makeText(context,"${t.message}",Toast.LENGTH_LONG).show()
                     }
 
                 })

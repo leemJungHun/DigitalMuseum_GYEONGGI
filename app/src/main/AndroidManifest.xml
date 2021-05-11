@@ -20,10 +20,12 @@
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:targetApi="m">
+        android:screenOrientation="landscape"
+        >
         <activity android:name="kr.rowan.digital_museum_gyeonggi.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

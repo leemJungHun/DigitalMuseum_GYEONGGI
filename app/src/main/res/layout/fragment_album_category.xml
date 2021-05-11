@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="fragment"
+            type="kr.rowan.digital_museum_gyeonggi.fragment.AlbumCategoryFragment" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC000000" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_238"
+            android:layout_height="@dimen/dimen_58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dimen_60"
+            android:layout_marginTop="@dimen/dimen_60"
+            android:src="@drawable/logo_white"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_38"
+            android:layout_marginTop="@dimen/dimen_156"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/titleLeftImgView"
+            android:layout_width="@dimen/dimen_174"
+            android:layout_height="@dimen/dimen_18"
+            android:layout_marginEnd="@dimen/dimen_36"
+            app:layout_constraintEnd_toStartOf="@id/titleTxtView"
+            app:layout_constraintTop_toTopOf="@id/titleTxtView"
+            app:layout_constraintBottom_toBottomOf="@id/titleTxtView"
+            android:src="@drawable/deco_title_left"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/titleRightImgView"
+            android:layout_width="@dimen/dimen_174"
+            android:layout_height="@dimen/dimen_18"
+            android:layout_marginStart="@dimen/dimen_36"
+            app:layout_constraintStart_toEndOf="@id/titleTxtView"
+            app:layout_constraintTop_toTopOf="@id/titleTxtView"
+            app:layout_constraintBottom_toBottomOf="@id/titleTxtView"
+            android:src="@drawable/deco_title_right"
+            />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/albumListView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dimen_136"
+            android:layout_marginBottom="@dimen/dimen_184"
+            android:layout_marginEnd="@dimen/dimen_80"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImgView"
+            android:layout_width="@dimen/dimen_282"
+            android:layout_height="@dimen/dimen_282"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_back"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/homeImgView"
+            android:layout_width="@dimen/dimen_282"
+            android:layout_height="@dimen/dimen_282"
+            android:onClick="@{fragment::onClick}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_home"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

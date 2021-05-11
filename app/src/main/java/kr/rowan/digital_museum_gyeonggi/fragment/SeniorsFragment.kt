@@ -19,6 +19,7 @@ import kr.rowan.digital_museum_gyeonggi.databinding.FragmentDigitalMuseumBinding
 import kr.rowan.digital_museum_gyeonggi.databinding.FragmentSeniorsBinding
 import kr.rowan.digital_museum_gyeonggi.network.HttpRequestService
 import kr.rowan.digital_museum_gyeonggi.network.request.UuidRequest
+import kr.rowan.digital_museum_gyeonggi.network.vo.CategoryVO
 import kr.rowan.digital_museum_gyeonggi.network.vo.ItemVO
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,10 +27,13 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
+import kotlin.collections.ArrayList
 
 class SeniorsFragment : Fragment() {
     private lateinit var binding: FragmentSeniorsBinding
     private lateinit var activity: MainActivity
+    private lateinit var categories: ArrayList<AppCompatImageView>
+    private val categoryList = ArrayList<CategoryVO>()
     private var httpRequestService: HttpRequestService? = null
     private var uuid = ""
     private val itemList = ArrayList<ItemVO>()
@@ -50,6 +54,7 @@ class SeniorsFragment : Fragment() {
             fragment = this@SeniorsFragment
         }
         uuid = arguments!!.getString("uuid").toString()
+
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(HttpRequestService.URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -60,6 +65,38 @@ class SeniorsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        categories = ArrayList()
+        categories.add(binding.headmasterImgView)
+        categories.add(binding.proudSeniorsImgView)
+        httpRequestService!!.getItems(UuidRequest(uuid))!!.enqueue(object : Callback<JsonArray?> {
+            override fun onResponse(
+                call: Call<JsonArray?>,
+                response: Response<JsonArray?>
+            ) {
+                Log.e("httpRequestService:", "OK")
+                Log.e("response:", "$response ")
+                if (response.body() != null) {
+                    val gson = Gson()
+                    Log.e("Success response:", "${response.body()}")
+                    val jsonArray = response.body()
+                    for(array in jsonArray!!){
+                        val categoryVO: CategoryVO =
+                            gson.fromJson(array, CategoryVO::class.java)
+                        categoryList.add(categoryVO)
+                        for(category in categories){
+                            if(categoryVO.name!! == category.tag.toString()){
+                                category.setTag(R.string.category_vo, categoryVO)
+                            }
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<JsonArray?>, t: Throwable) {
+                Log.e("Failed uuid:", "${t.message}")
+            }
+
+        })
     }
 
     fun onClick(view: View) {
@@ -69,44 +106,30 @@ class SeniorsFragment : Fragment() {
             R.id.backImgView -> {
                 activity.setStartFragment(SubFragment(),true,null)
             }
-            else -> {
-                Log.e("onClick:", "else")
-                httpRequestService!!.getItems(UuidRequest(uuid))!!.enqueue(object : Callback<JsonArray?> {
-                    override fun onResponse(
-                        call: Call<JsonArray?>,
-                        response: Response<JsonArray?>
-                    ) {
-                        if (response.body() != null) {
-                            val gson = Gson()
-                            Log.e("Success response:", "${response.body()}")
-                            val jsonArray = response.body()
-                            for(array in jsonArray!!){
-                                val itemVO: ItemVO =
-                                    gson.fromJson(array, ItemVO::class.java)
-                                itemList.add(itemVO)
-                                Log.e("itemVO.title:", "${itemVO.title}")
-                            }
-                            var fragment = Fragment()
-                            when (view.id) {
-                                binding.headmasterImgView.id -> {
-                                    result.putBoolean("direct", true)
-                                    fragment = ItemFragment()
-                                    result.putParcelableArrayList("itemList", itemList)
-                                }
-                            }
-                            activity.setStartFragment(
-                                fragment,
-                                false,
-                                result
-                            )
-                        }
-                    }
-
-                    override fun onFailure(call: Call<JsonArray?>, t: Throwable) {
-                        Log.e("Failed uuid:", "${t.message}")
-                    }
-
-                })
+            binding.headmasterImgView.id -> {
+                val vo = view.getTag(R.string.category_vo) as CategoryVO
+                result.putBoolean("direct", true)
+                result.putString("fragmentName", "seniors")
+                result.putString("name", vo.name)
+                result.putString("uuid", vo.uuid)
+                result.putString("preUuid", uuid)
+                activity.setStartFragment(
+                    ItemFragment(),
+                    false,
+                    result
+                )
+            }
+            binding.proudSeniorsImgView.id -> {
+                val vo = view.getTag(R.string.category_vo) as CategoryVO
+                result.putBoolean("direct", true)
+                result.putString("name", vo.name)
+                result.putString("uuid", vo.uuid)
+                result.putString("preUuid", uuid)
+                activity.setStartFragment(
+                    ProudSeniorsFragment(),
+                    false,
+                    result
+                )
             }
         }
     }

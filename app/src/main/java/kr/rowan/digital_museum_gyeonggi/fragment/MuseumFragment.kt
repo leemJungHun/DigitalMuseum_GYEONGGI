@@ -32,10 +32,9 @@ class MuseumFragment : Fragment() {
     private lateinit var binding: FragmentDigitalMuseumBinding
     private lateinit var activity: MainActivity
     private lateinit var categories: ArrayList<AppCompatImageView>
+    private val categoryList = ArrayList<CategoryVO>()
     private var httpRequestService: HttpRequestService? = null
     private var uuid = ""
-    private val itemList = ArrayList<ItemVO>()
-    private val categoryList = ArrayList<CategoryVO>()
     private var categoryOff = intArrayOf(
         R.drawable.btn_books,
         R.drawable.btn_document,

@@ -16,20 +16,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/gyeonggi_school_bg_03" />
-
-
+        >
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#CC000000" />
-
+            android:background="#CC000000"
+            />
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/dimen_238"
             android:layout_height="@dimen/dimen_58"
@@ -121,7 +113,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/btn_04"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

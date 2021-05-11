@@ -6,15 +6,18 @@ import android.os.Parcelable
 class CategoryVO : Parcelable {
     var name: String? = null
     var uuid: String? = null
+    var path: String? = null
 
-    constructor(name: String?, code: String?) {
+    constructor(name: String?, code: String?, path: String?) {
         this.name = name
         this.uuid = code
+        this.path = path
     }
 
     protected constructor(`in`: Parcel) {
         name = `in`.readString()
         uuid = `in`.readString()
+        path = `in`.readString()
     }
 
     override fun describeContents(): Int {
@@ -24,6 +27,7 @@ class CategoryVO : Parcelable {
     override fun writeToParcel(parcel: Parcel, i: Int) {
         parcel.writeString(name)
         parcel.writeString(uuid)
+        parcel.writeString(path)
     }
 
     companion object CREATOR : Parcelable.Creator<CategoryVO> {

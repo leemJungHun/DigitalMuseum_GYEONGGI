@@ -13,7 +13,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gyeonggi_school_bg_03"
         >
         <View
             android:layout_width="match_parent"
@@ -64,21 +63,41 @@
             android:src="@drawable/deco_title_right"
             />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/yearListBackImgView"
+            android:layout_width="@dimen/dimen_1440"
+            android:layout_height="@dimen/dimen_58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            app:layout_constraintBottom_toTopOf="@id/assignmentListView"
+            android:background="@drawable/border_line_1"
+            android:src="@drawable/box_year"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/yearListView"
+            android:layout_width="@dimen/dimen_1440"
+            android:layout_height="@dimen/dimen_58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            app:layout_constraintBottom_toTopOf="@id/assignmentListView"
+            />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/assignmentListView"
             android:layout_width="@dimen/dimen_1920"
-            android:layout_height="@dimen/dimen_558"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="@dimen/dimen_502"
+            app:layout_constraintBottom_toTopOf="@id/rvSeekBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView" />
 
         <androidx.appcompat.widget.AppCompatSeekBar
             android:id="@+id/rvSeekBar"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimen_1440"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_240"
-            android:layout_marginEnd="@dimen/dimen_240"
             android:layout_marginBottom="@dimen/dimen_130"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
@@ -89,6 +108,51 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/rvSeekBar"
+            app:layout_constraintStart_toStartOf="@id/rvSeekBar"
+            app:layout_constraintEnd_toStartOf="@id/rvSeekBar"
+            android:layout_marginBottom="@dimen/dimen_12"
+            android:text="@string/start_text"
+            android:textSize="@dimen/font_22"
+            android:textColor="@color/white"
+            android:fontFamily="@font/notoserifkr_medium"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/rvSeekBar"
+            app:layout_constraintEnd_toEndOf="@id/rvSeekBar"
+            app:layout_constraintStart_toEndOf="@id/rvSeekBar"
+            android:layout_marginBottom="@dimen/dimen_12"
+            android:text="@string/end_text"
+            android:textSize="@dimen/font_22"
+            android:textColor="@color/white"
+            android:fontFamily="@font/notoserifkr_medium"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_12"
+            android:layout_height="@dimen/dimen_12"
+            app:layout_constraintStart_toStartOf="@id/rvSeekBar"
+            app:layout_constraintEnd_toStartOf="@id/rvSeekBar"
+            app:layout_constraintTop_toTopOf="@id/rvSeekBar"
+            app:layout_constraintBottom_toBottomOf="@id/rvSeekBar"
+            android:src="@drawable/bar_start"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_12"
+            android:layout_height="@dimen/dimen_12"
+            app:layout_constraintStart_toEndOf="@id/rvSeekBar"
+            app:layout_constraintEnd_toEndOf="@id/rvSeekBar"
+            app:layout_constraintTop_toTopOf="@id/rvSeekBar"
+            app:layout_constraintBottom_toBottomOf="@id/rvSeekBar"
+            android:src="@drawable/bar_end"
+            />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/backImgView"

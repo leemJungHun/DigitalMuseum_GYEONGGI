@@ -13,7 +13,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gyeonggi_school_bg_03"
         >
         <View
             android:layout_width="match_parent"
@@ -85,6 +84,7 @@
             android:layout_marginTop="@dimen/dimen_66"
             android:layout_marginEnd="@dimen/dimen_20"
             android:onClick="@{fragment::onClick}"
+            android:tag="역대 교장 선생님"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,6 +98,7 @@
             android:layout_height="@dimen/dimen_620"
             android:layout_marginTop="@dimen/dimen_66"
             android:onClick="@{fragment::onClick}"
+            android:tag="자랑스러운 선배님"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
             app:layout_constraintStart_toEndOf="@id/headmasterImgView"
             app:layout_constraintEnd_toEndOf="parent"

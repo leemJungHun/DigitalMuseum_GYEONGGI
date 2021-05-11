@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             Restart_Period()
         }
         transaction
-                .replace(R.id.main_container, fragment).commitAllowingStateLoss()
+                .replace(R.id.main_container, fragment).addToBackStack(null).commit()
     }
 
     override fun onBackPressed() {

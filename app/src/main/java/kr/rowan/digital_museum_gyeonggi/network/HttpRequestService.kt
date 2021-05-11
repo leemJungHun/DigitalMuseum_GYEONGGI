@@ -6,11 +6,11 @@ import kr.rowan.digital_museum_gyeonggi.network.request.UuidRequest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Path
 
 interface HttpRequestService {
     companion object {
         var URL = "http://10.20.170.240:8080" //회사(인재님 서버)
+        //var URL = "http://192.168.0.1:8081" // 로컬 설정
     }
 
     @POST("api/get/top/category")

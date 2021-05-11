@@ -1,18 +1,19 @@
 package kr.rowan.digital_museum_gyeonggi.network.vo
 
 data class DetailsVO(
-    var code: String,
     var title: String,
-    var productedAt: String,
-    var amount: Int,
+    var images: ArrayList<ImageVO>,
+    var year: String?,
+    var month: String?,
+    var date: String?,
+    var quantity: Int,
     var size: String,
-    var material: String,
-    var note: String,
+    var texture: String,
+    var kind: String,
+    var contributor: String,
     var origin: String,
-    var production: String,
-    var source: String,
-    var storage: String,
-    var storeNum: String,
-    var content: String,
-    var imgUrl: String
+    var reference: String,
+    var language: String,
+    var book_stand: String,
+    var box_number: String
 )

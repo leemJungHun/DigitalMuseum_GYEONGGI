@@ -3,32 +3,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout"
-            android:background="#00FFFFFF"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#00FFFFFF">
 
-            <!--<androidx.appcompat.widget.AppCompatImageView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemLayout"
+            android:layout_width="@dimen/dimen_558"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/contentImgView"
+                android:layout_width="@dimen/dimen_400"
+                android:layout_height="@dimen/dimen_360"
+                android:src="@drawable/gyeonggi_school_bg_01"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/dimen_16"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/contentImgView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:transitionName="sharedImage" />-->
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/dimen_16"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/yearText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="테스트"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_32"
+                android:fontFamily="@font/notoserifkr_bold"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/contentImgView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/contentText"
-                android:layout_width="@dimen/dimen_620"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="테스트"
-                android:textSize="@dimen/font_60"
                 android:textColor="@color/black"
-                android:background="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="@dimen/font_28"
+                android:fontFamily="@font/notoserifkr_medium"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/yearText"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
-
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

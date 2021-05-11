@@ -1,17 +1,18 @@
 package kr.rowan.digital_museum_gyeonggi.adapter
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kr.rowan.digital_museum_gyeonggi.MainActivity
 import kr.rowan.digital_museum_gyeonggi.databinding.ItemMuseumCategoryBinding
 import kr.rowan.digital_museum_gyeonggi.fragment.ItemFragment
+import kr.rowan.digital_museum_gyeonggi.network.HttpRequestService
 import kr.rowan.digital_museum_gyeonggi.network.vo.CategoryVO
-import java.util.*
 import kotlin.collections.ArrayList
 
 /**
@@ -30,25 +31,16 @@ class MuseumCategoryAdapter(val context: MainActivity, private val uuid1:String,
     override fun onBindViewHolder(holder: MuseumCategoryViewHolder, position: Int) {
         val binding = holder.binding
         val category = categoryList[position]
-        if(position==0){
-            binding.startSpace.visibility = View.VISIBLE
-        }else{
-            binding.startSpace.visibility = View.GONE
-        }
-        if(position==categoryList.size-1){
-            if(position%3==0){
-                binding.endSpace.visibility = View.VISIBLE
-            }else{
-                binding.endSpace2.visibility = View.VISIBLE
-            }
-        }else{
-            binding.endSpace.visibility = View.GONE
-            binding.endSpace2.visibility = View.GONE
-        }
         if(position%3==0){
             binding.patternLayout1.visibility = View.VISIBLE
             binding.patternLayout2.visibility = View.GONE
             binding.pattenBtn1.text = category.name
+            if(category.path!=null){
+
+                Glide.with(context).load(HttpRequestService.URL + category.path)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .thumbnail(0.5f).into(binding.pattenImgView1)
+            }
             binding.pattenBtn1.tag = category.uuid
             binding.pattenBtn1.setOnClickListener(onClickListener)
         }else if(position%3==1){
@@ -57,11 +49,21 @@ class MuseumCategoryAdapter(val context: MainActivity, private val uuid1:String,
             binding.pattenBtn2.text = category.name
             binding.pattenBtn2.tag = category.uuid
             binding.pattenBtn2.setOnClickListener(onClickListener)
+            if(category.path!=null){
+                Glide.with(context).load(HttpRequestService.URL + category.path)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .thumbnail(0.5f).into(binding.pattenImgView2)
+            }
             if(position+1<=categoryList.size-1){
                 val category2 = categoryList[position+1]
                 binding.pattenBtn3.text = category2.name
                 binding.pattenBtn3.tag = category2.uuid
                 binding.pattenBtn3.setOnClickListener(onClickListener)
+                if(category2.path!=null){
+                    Glide.with(context).load(HttpRequestService.URL + category2.path)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .thumbnail(0.5f).into(binding.pattenImgView3)
+                }
             }else{
                 binding.pattenBtn3.visibility = View.GONE
             }
@@ -81,6 +83,7 @@ class MuseumCategoryAdapter(val context: MainActivity, private val uuid1:String,
         result.putString("preUuid", uuid2)
         result.putString("firstUuid", uuid1)
         result.putString("preName", preName)
+        result.putString("fragmentName", "museum")
         result.putBoolean("direct", false)
         context.setStartFragment(
             ItemFragment(),
