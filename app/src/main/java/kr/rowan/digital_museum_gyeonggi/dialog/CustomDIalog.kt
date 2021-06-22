@@ -29,6 +29,9 @@ class CustomDialog(
     var URL: String = HttpRequestService.URL
     private val mBtnClickListener: View.OnClickListener = singleListener!!
     private val mActivity = activity
+    private var pageCount = 0
+    private var lastPage = 0
+    private var prePage = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,11 +39,11 @@ class CustomDialog(
         setContentView(binding.root)
         val amount: String = detailsVO!!.quantity.toString() + "개"
         var date = "날짜 미상"
-        if(detailsVO.year!=null){
+        if (detailsVO.year != null) {
             date = "날짜 ${detailsVO.year}년"
-        }else if(detailsVO.year!=null&&detailsVO.month!=null){
+        } else if (detailsVO.year != null && detailsVO.month != null) {
             date = "날짜 ${detailsVO.year}년 ${detailsVO.month}월"
-        }else if(detailsVO.year!=null&&detailsVO.month!=null&&detailsVO.date!=null){
+        } else if (detailsVO.year != null && detailsVO.month != null && detailsVO.date != null) {
             date = "날짜 ${detailsVO.year}년 ${detailsVO.month}월 ${detailsVO.date}일"
         }
         binding.producted.text = date
@@ -54,11 +57,15 @@ class CustomDialog(
         //binding.contentText.text = detailsVO.content
         //Glide.with(context).load(URL + detailsVO.path).thumbnail(0.01f).into(binding.contentImage)
         val pathList = ArrayList<String>()
-        for(i in 0 until detailsVO.images.size){
+        for (i in 0 until detailsVO.images.size) {
             pathList.add(detailsVO.images[i].path)
         }
-        val mLayoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        lastPage = pathList.size - 1
+        if (lastPage >= 1) {
+            binding.nextImgView.visibility = View.VISIBLE
+        } else {
+            binding.nextImgView.visibility = View.INVISIBLE
+        }
         val mAdapter = DetailImgAdapter(mActivity)
         binding.contentImgListView.apply {
             adapter = mAdapter
@@ -69,6 +76,28 @@ class CustomDialog(
                 ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     Log.e("pagePosition", "$position")
+                    if (prePage < position) {
+                        pageCount++
+                        if (pageCount == lastPage) {
+                            binding.preImgView.visibility = View.VISIBLE
+                            binding.nextImgView.visibility = View.GONE
+                        } else {
+                            binding.preImgView.visibility = View.VISIBLE
+                            binding.nextImgView.visibility = View.VISIBLE
+                        }
+                    } else if (prePage > position) {
+                        pageCount--
+                        if (pageCount == 0) {
+                            binding.preImgView.visibility = View.GONE
+                            binding.nextImgView.visibility = View.VISIBLE
+                            binding.contentImgListView.currentItem = pageCount
+                        } else {
+                            binding.preImgView.visibility = View.VISIBLE
+                            binding.nextImgView.visibility = View.VISIBLE
+                            binding.contentImgListView.currentItem = pageCount
+                        }
+                    }
+                    prePage = position
                 }
 
                 override fun onPageScrolled(
@@ -95,6 +124,19 @@ class CustomDialog(
         binding.sourceValue.setOnClickListener(mBtnClickListener)
         binding.contentText.setOnClickListener(mBtnClickListener)
         binding.customBack.setOnClickListener(mBtnClickListener)
+        binding.nextImgView.setOnClickListener(pageBtnClickListener)
+        binding.preImgView.setOnClickListener(pageBtnClickListener)
+    }
+
+    private val pageBtnClickListener = View.OnClickListener { view ->
+        when (view.id) {
+            binding.preImgView.id -> {
+                binding.contentImgListView.currentItem = pageCount - 1
+            }
+            binding.nextImgView.id -> {
+                binding.contentImgListView.currentItem = pageCount + 1
+            }
+        }
     }
 
 }

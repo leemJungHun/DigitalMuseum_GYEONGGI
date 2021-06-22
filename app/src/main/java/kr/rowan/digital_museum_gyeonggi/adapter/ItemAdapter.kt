@@ -14,6 +14,7 @@ import kr.rowan.digital_museum_gyeonggi.MainActivity
 import kr.rowan.digital_museum_gyeonggi.R
 import kr.rowan.digital_museum_gyeonggi.databinding.ItemCardBinding
 import kr.rowan.digital_museum_gyeonggi.dialog.CustomDialog
+import kr.rowan.digital_museum_gyeonggi.dialog.CustomDialog2
 import kr.rowan.digital_museum_gyeonggi.network.HttpRequestService
 import kr.rowan.digital_museum_gyeonggi.network.request.UuidRequest
 import kr.rowan.digital_museum_gyeonggi.network.vo.CategoryVO
@@ -32,6 +33,7 @@ class ItemAdapter(var context: MainActivity, var item: ArrayList<ItemVO>, var fr
     private lateinit var binding: ItemCardBinding
     private var changedPosition = -1
     var dialog: CustomDialog? = null
+    var dialog2: CustomDialog2? = null
     var isClick = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val binding = ItemCardBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -44,19 +46,32 @@ class ItemAdapter(var context: MainActivity, var item: ArrayList<ItemVO>, var fr
         binding = holder.binding
         val unit = itemList[position]
         Log.e("image Path", HttpRequestService.URL + unit.images)
+        Log.e("position","$position ")
+        Log.e("fragmentName","$fragmentName ")
         if (unit.images != null) {
-            if(fragmentName=="seniors"){
-                binding.contentImgView.visibility = View.INVISIBLE
-                binding.contentImgView2.visibility = View.VISIBLE
-                Glide.with(context).load(HttpRequestService.URL + unit.images[0].path)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .thumbnail(0.5f).into(binding.contentImgView2)
-            }else{
-                binding.contentImgView2.visibility = View.GONE
-                binding.contentImgView.visibility = View.VISIBLE
-                Glide.with(context).load(HttpRequestService.URL + unit.images[0].path)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .thumbnail(0.5f).into(binding.contentImgView)
+            when (fragmentName) {
+                "seniors" -> {
+                    binding.contentImgView.visibility = View.INVISIBLE
+                    binding.contentImgView2.visibility = View.VISIBLE
+                    Glide.with(context).load(HttpRequestService.URL + unit.images[0].path)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .thumbnail(0.5f).into(binding.contentImgView2)
+                }
+                "album" -> {
+                    binding.contentText.visibility = View.GONE
+                    binding.contentImgView2.visibility = View.GONE
+                    binding.contentImgView.visibility = View.VISIBLE
+                    Glide.with(context).load(HttpRequestService.URL + unit.images[0].path)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .thumbnail(0.5f).into(binding.contentImgView)
+                }
+                else -> {
+                    binding.contentImgView2.visibility = View.GONE
+                    binding.contentImgView.visibility = View.VISIBLE
+                    Glide.with(context).load(HttpRequestService.URL + unit.images[0].path)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .thumbnail(0.5f).into(binding.contentImgView)
+                }
             }
         }
 
@@ -89,7 +104,7 @@ class ItemAdapter(var context: MainActivity, var item: ArrayList<ItemVO>, var fr
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.itemLayout.setOnClickListener {
-                if (!isClick&&fragmentName!="seniors") {
+                if (!isClick&&fragmentName=="museum") {
                     isClick = true
                     val retrofit = Retrofit.Builder()
                         .baseUrl(HttpRequestService.URL)
@@ -112,14 +127,19 @@ class ItemAdapter(var context: MainActivity, var item: ArrayList<ItemVO>, var fr
                                     )
                                     Log.d("detailsVo", " " + detailsVO.title)
                                     dialog(detailsVO)
+                                    isClick = false
                                 } else {
                                     isClick = false
                                 }
                             }
 
                             override fun onFailure(call: Call<JsonObject?>, t: Throwable) {
+                                isClick = false
                             }
                         })
+                }else if(!isClick&&fragmentName=="album"){
+                    dialog2(item[bindingAdapterPosition].images!![0].path)
+                    isClick = false
                 }
             }
         }
@@ -139,6 +159,21 @@ class ItemAdapter(var context: MainActivity, var item: ArrayList<ItemVO>, var fr
             dialog!!.setCancelable(true)
             Objects.requireNonNull(dialog!!.window)!!.setGravity(Gravity.CENTER)
             dialog!!.show()
+        }
+
+        fun dialog2(imgUrl: String?) {
+            Log.e("context", "$context")
+            Log.e("okListener", "$okListener")
+            dialog2 = CustomDialog2(
+                context,
+                imgUrl!!,  // 내용
+                okListener
+            )
+            context.Restart_Period(dialog2)
+            //요청 이 다이어로그를 종료할 수 있게 지정함
+            dialog2!!.setCancelable(true)
+            Objects.requireNonNull(dialog2!!.window)!!.setGravity(Gravity.CENTER)
+            dialog2!!.show()
         }
 
         //다이얼로그 클릭이벤트

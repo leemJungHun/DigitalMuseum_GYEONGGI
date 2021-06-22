@@ -18,7 +18,7 @@ class ScreenSlidePagerAdapter() : RecyclerView.Adapter<PagerViewHolder>() {
         holder.bind(position)
     }
 
-    override fun getItemCount(): Int = 16
+    override fun getItemCount(): Int = 19
 }
 
 class PagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -78,6 +78,15 @@ class PagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             }
             15 -> {
                 return R.drawable.history_img_16
+            }
+            16 -> {
+                return R.drawable.history_img_17
+            }
+            17 -> {
+                return R.drawable.history_img_18
+            }
+            18 -> {
+                return R.drawable.history_img_19
             }
             else -> {
                 return R.drawable.history_img_01

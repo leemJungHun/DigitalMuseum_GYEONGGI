@@ -9,8 +9,8 @@ import retrofit2.http.POST
 
 interface HttpRequestService {
     companion object {
-        var URL = "http://10.20.170.240:8080" //회사(인재님 서버)
-        //var URL = "http://192.168.0.1:8081" // 로컬 설정
+        var URL = "http://10.20.170.240" //회사(인재님 서버)
+        //var URL = "http://192.168.0.1:8080" // 로컬 설정
     }
 
     @POST("api/get/top/category")

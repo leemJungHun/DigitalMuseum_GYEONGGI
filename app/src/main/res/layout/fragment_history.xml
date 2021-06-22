@@ -14,11 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/dimen_238"
@@ -27,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="@dimen/dimen_60"
             android:layout_marginTop="@dimen/dimen_60"
-            android:src="@drawable/logo_white"
+            android:src="@drawable/logo_black"
             />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -40,8 +45,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:onClick="@{fragment::onClick}"
             android:scaleType="centerCrop"
-            android:src="@drawable/btn_back"
-            android:tint="#99000000"
+            android:src="@drawable/btn_history_back"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

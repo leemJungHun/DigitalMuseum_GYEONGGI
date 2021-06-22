@@ -66,6 +66,7 @@ class SeniorsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         categories = ArrayList()
+        categories.add(binding.clubMasterImgView)
         categories.add(binding.headmasterImgView)
         categories.add(binding.proudSeniorsImgView)
         httpRequestService!!.getItems(UuidRequest(uuid))!!.enqueue(object : Callback<JsonArray?> {
@@ -106,10 +107,14 @@ class SeniorsFragment : Fragment() {
             R.id.backImgView -> {
                 activity.setStartFragment(SubFragment(),true,null)
             }
-            binding.headmasterImgView.id -> {
+            binding.headmasterImgView.id, binding.clubMasterImgView.id -> {
                 val vo = view.getTag(R.string.category_vo) as CategoryVO
                 result.putBoolean("direct", true)
-                result.putString("fragmentName", "seniors")
+                if(view.id==binding.clubMasterImgView.id){
+                    result.putString("fragmentName", "seniors")
+                }else{
+                    result.putString("fragmentName", "head")
+                }
                 result.putString("name", vo.name)
                 result.putString("uuid", vo.uuid)
                 result.putString("preUuid", uuid)

@@ -78,6 +78,21 @@
             />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/clubMasterImgView"
+            android:layout_width="@dimen/dimen_460"
+            android:layout_height="@dimen/dimen_620"
+            android:layout_marginTop="@dimen/dimen_66"
+            android:layout_marginEnd="@dimen/dimen_20"
+            android:onClick="@{fragment::onClick}"
+            android:tag="역대 총동문회 회장"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+            app:layout_constraintEnd_toStartOf="@+id/headmasterImgView"
+            app:layout_goneMarginEnd="@dimen/dimen_20"
+            android:background="@drawable/club_marster_img"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/headmasterImgView"
             android:layout_width="@dimen/dimen_460"
             android:layout_height="@dimen/dimen_620"
@@ -85,11 +100,10 @@
             android:layout_marginEnd="@dimen/dimen_20"
             android:onClick="@{fragment::onClick}"
             android:tag="역대 교장 선생님"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/proudSeniorsImgView"
-            android:background="@drawable/senuors_img_01"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/head_marster_img"
             />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -101,7 +115,7 @@
             android:tag="자랑스러운 선배님"
             app:layout_constraintTop_toBottomOf="@id/titleTxtView"
             app:layout_constraintStart_toEndOf="@id/headmasterImgView"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/dimen_20"
             android:background="@drawable/senuors_img_02"
             />
 

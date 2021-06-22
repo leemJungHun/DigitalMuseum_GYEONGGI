@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager
 import kr.rowan.digital_museum_gyeonggi.databinding.ActivityMainBinding
 import kr.rowan.digital_museum_gyeonggi.dialog.CustomDialog
 import kr.rowan.digital_museum_gyeonggi.dialog.CustomDialog2
+import kr.rowan.digital_museum_gyeonggi.fragment.HistoryFragment
 import kr.rowan.digital_museum_gyeonggi.fragment.MainFragment
 import java.util.*
 
@@ -79,7 +80,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             Restart_Period()
         }
         transaction
-                .replace(R.id.main_container, fragment).addToBackStack(null).commit()
+                .replace(R.id.main_container, fragment).commit()
+
+        Log.e("fragmentCount","${fragmentManager!!.backStackEntryCount} ")
     }
 
     override fun onBackPressed() {

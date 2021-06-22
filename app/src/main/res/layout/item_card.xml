@@ -53,6 +53,7 @@
                 android:fontFamily="@font/notoserifkr_bold"
                 android:includeFontPadding="false"
                 app:layout_constraintTop_toBottomOf="@id/contentImgView"
+                app:layout_constraintBottom_toTopOf="@id/contentText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -67,6 +68,7 @@
                 android:fontFamily="@font/notoserifkr_medium"
                 android:includeFontPadding="false"
                 app:layout_constraintTop_toBottomOf="@id/yearText"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

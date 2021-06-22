@@ -256,7 +256,7 @@ class ItemFragment : Fragment() {
                             "museum" -> {
                                 MuseumFragment()
                             }
-                            "seniors" -> {
+                            "seniors", "head" -> {
                                 SeniorsFragment()
                             }
                             else -> {

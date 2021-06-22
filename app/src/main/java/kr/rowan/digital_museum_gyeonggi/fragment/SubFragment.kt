@@ -31,6 +31,7 @@ class SubFragment : Fragment() {
     private var httpRequestService: HttpRequestService? = null
     private lateinit var categories: ArrayList<AppCompatImageView>
     private val uuidList = ArrayList<String>()
+    private var itemClick = false
     private var categoryOff = intArrayOf(
         R.drawable.btn_01,
         R.drawable.btn_02,
@@ -115,52 +116,58 @@ class SubFragment : Fragment() {
                 )
             }
             else -> {
-                httpRequestService!!.getCategory()!!.enqueue(object : Callback<JsonArray?> {
-                    override fun onResponse(
-                        call: Call<JsonArray?>,
-                        response: Response<JsonArray?>
-                    ) {
-                        if (response.body() != null) {
-                            Log.e("Success response:", "${response.body()}")
-                            Log.e("Success uuid:", "")
-                            //Toast.makeText(context,"${response.body()}",Toast.LENGTH_LONG).show()
-                            val jsonArray = response.body()
-                            for(array in jsonArray!!){
-                                val jsonObject = array.asJsonObject
-                                uuidList.add(jsonObject["uuid"].asString)
-                                Log.e("uuid:", jsonObject["uuid"].asString)
+                if(!itemClick){
+                    itemClick = true
+                    httpRequestService!!.getCategory()!!.enqueue(object : Callback<JsonArray?> {
+                        override fun onResponse(
+                            call: Call<JsonArray?>,
+                            response: Response<JsonArray?>
+                        ) {
+                            if (response.body() != null) {
+                                Log.e("Success response:", "${response.body()}")
+                                Log.e("Success uuid:", "")
+                                //Toast.makeText(context,"${response.body()}",Toast.LENGTH_LONG).show()
+                                val jsonArray = response.body()
+                                for(array in jsonArray!!){
+                                    val jsonObject = array.asJsonObject
+                                    uuidList.add(jsonObject["uuid"].asString)
+                                    Log.e("uuid:", jsonObject["uuid"].asString)
+                                }
+                                var fragment = Fragment()
+                                when (view.id) {
+                                    binding.categoryImgView2.id -> {
+                                        fragment = MuseumFragment()
+                                        result.putString("uuid", uuidList[0])
+                                    }
+                                    binding.categoryImgView3.id -> {
+                                        fragment = AlbumFragment()
+                                        result.putString("uuid", uuidList[1])
+                                    }
+                                    binding.categoryImgView4.id -> {
+                                        fragment = SeniorsFragment()
+                                        result.putString("uuid", uuidList[2])
+                                    }
+                                }
+                                activity.setStartFragment(
+                                    fragment,
+                                    false,
+                                    result
+                                )
+                                itemClick = false
+                            }else{
+                                Toast.makeText(context,"body null",Toast.LENGTH_LONG).show()
+                                itemClick = false
                             }
-                            var fragment = Fragment()
-                            when (view.id) {
-                                binding.categoryImgView2.id -> {
-                                    fragment = MuseumFragment()
-                                    result.putString("uuid", uuidList[0])
-                                }
-                                binding.categoryImgView3.id -> {
-                                    fragment = AlbumFragment()
-                                    result.putString("uuid", uuidList[1])
-                                }
-                                binding.categoryImgView4.id -> {
-                                    fragment = SeniorsFragment()
-                                    result.putString("uuid", uuidList[2])
-                                }
-                            }
-                            activity.setStartFragment(
-                                fragment,
-                                false,
-                                result
-                            )
-                        }else{
-                            Toast.makeText(context,"body null",Toast.LENGTH_LONG).show()
                         }
-                    }
 
-                    override fun onFailure(call: Call<JsonArray?>, t: Throwable) {
-                        Log.e("Failed uuid:", "${t.message}")
-                        Toast.makeText(context,"${t.message}",Toast.LENGTH_LONG).show()
-                    }
+                        override fun onFailure(call: Call<JsonArray?>, t: Throwable) {
+                            Log.e("Failed uuid:", "${t.message}")
+                            Toast.makeText(context,"${t.message}",Toast.LENGTH_LONG).show()
+                            itemClick = false
+                        }
 
-                })
+                    })
+                }
             }
            /* binding.categoryImgView2.id -> {
                 result.putString("uuid", "Code")

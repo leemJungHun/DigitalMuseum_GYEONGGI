@@ -24,6 +24,7 @@
                 android:layout_height="@dimen/dimen_560"
                 android:layout_marginStart="@dimen/dimen_20"
                 android:padding="@dimen/dimen_1"
+                android:background="@drawable/border_line_1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -269,6 +270,31 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/contentImgListView"
                 app:layout_constraintTop_toBottomOf="@id/sourceValue" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/nextImgView"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_next"
+                android:layout_marginEnd="@dimen/dimen_24"
+                app:layout_constraintEnd_toEndOf="@id/contentImgListView"
+                app:layout_constraintTop_toTopOf="@id/contentImgListView"
+                app:layout_constraintBottom_toBottomOf="@id/contentImgListView"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/preImgView"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_next"
+                android:scaleX="-1"
+                android:layout_marginStart="@dimen/dimen_24"
+                app:layout_constraintStart_toStartOf="@id/contentImgListView"
+                app:layout_constraintTop_toTopOf="@id/contentImgListView"
+                app:layout_constraintBottom_toBottomOf="@id/contentImgListView"
+                />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/close_btn"
